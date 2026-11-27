@@ -1,1 +1,27 @@
+#theme-toggle {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  cursor: pointer;
+  background: #f0f0f0;
+  color: #333333;
+  border: none;
+  border-radius: 50%;
+  font-size: 21px;
+  transition: background 0.2s;
+}
 
+#theme-toggle:hover {
+  background: #dddddd;
+}
+
+body.dark-mode #theme-toggle {
+  background: #292929;
+  color: #ffffff;
+}
