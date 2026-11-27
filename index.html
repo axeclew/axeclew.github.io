@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <title>Rishi Kenchannavar</title>
   <style>
-    /* 1. Define light and dark colors */
+    
     :root {
       --bg-color: #ffffff;
       --text-color: #000000;
@@ -20,7 +20,7 @@
       --line-color: #333333;
     }
 
-    /* 2. Apply colors to the page */
+    
     body {
       background-color: var(--bg-color);
       color: var(--text-color);
@@ -36,7 +36,7 @@
       border-top: 1px solid var(--line-color);
     }
 
-    /* 3. Position the toggle button in the top-right corner */
+    
     #theme-toggle {
       position: fixed;
       top: 16px;
@@ -52,10 +52,10 @@
 </head>
 <body>
 
-  <!-- 4. Add the toggle button -->
+  
   <button id="theme-toggle">Dark Mode</button>
 
-  <!-- Your existing content -->
+  
   <h1>info</h1>
   <p>sophomore @ clements highschool | Expected graduation - May 2029</p>
   <hr>
@@ -72,12 +72,12 @@
   <h3>Interests</h3>
   <p>software engineering, art, biology, earth sciences</p>
 
-  <!-- 5. Add the toggle logic -->
+  
   <script>
     const toggleBtn = document.getElementById('theme-toggle');
     const body = document.body;
 
-    // Load saved theme if the user visited before
+    
     if (localStorage.getItem('theme') === 'dark') {
       body.classList.add('dark-mode');
       toggleBtn.textContent = 'Light Mode';
