@@ -1,1 +1,96 @@
+:root {
+    --ink:#15201f;
+    --paper:#f3f1ea;
+    --acid:#d7ff3f;
+    --pink:#e77c7c;
+    --blue:#9cc4e3;
+    --line:rgba(21,32,31,.22);
+}
 
+.nav-actions {
+    display:flex;
+    align-items:center;
+    gap:18px;
+}
+
+.edit-trigger,.editor-bar button {
+    appearance:none;
+    font:500 .72rem "DM Mono",monospace;
+    text-transform:uppercase;
+    letter-spacing:.04em;
+    border:1px solid var(--ink);
+    background:transparent;
+    color:var(--ink);
+    padding:8px 10px;
+    cursor:pointer;
+}
+
+.edit-trigger:hover {
+    background:var(--ink);
+    color:var(--paper);
+}
+
+.editor-bar {
+    display:none;
+    position:fixed;
+    z-index:10;
+    bottom:18px;
+    left:50%;
+    transform:translateX(-50%);
+    width:min(620px,calc(100% - 32px));
+    padding:12px 14px;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    background:var(--ink);
+    color:var(--paper);
+    box-shadow:0 8px 30px rgba(0,0,0,.2);
+    font-size:.8rem;
+}
+
+.editor-bar div {
+    display:flex;
+    gap:8px;
+    white-space:nowrap;
+}
+
+.editor-bar button {
+    border-color:var(--paper);
+    color:var(--paper);
+}
+
+.editor-bar .save-edits {
+    background:var(--acid);
+    border-color:var(--acid);
+    color:var(--ink);
+}
+
+body.editing .editor-bar {
+    display:flex;
+}
+
+body.editing [data-editable] {
+    outline:2px dashed var(--pink);
+    outline-offset:5px;
+    cursor:text;
+}
+
+body.editing .edit-trigger {
+    background:var(--ink);
+    color:var(--paper);
+}
+
+* {
+    box-sizing:border-box;
+}
+
+html {
+    scroll-behavior:smooth;
+}
+
+body {
+    margin:0;
+    color:var(--ink);
+    background:var(--paper);
+    font-family:"DM Sans", sans-serif;
+    font-size:16px;
