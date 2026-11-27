@@ -2,30 +2,91 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
   <title>Rishi Kenchannavar</title>
+  <style>
+    /* 1. Define light and dark colors */
+    :root {
+      --bg-color: #ffffff;
+      --text-color: #000000;
+      --link-color: #0000ee;
+      --line-color: #cccccc;
+    }
+
+    body.dark-mode {
+      --bg-color: #121212;
+      --text-color: #eaeaea;
+      --link-color: #6ea8fe;
+      --line-color: #333333;
+    }
+
+    /* 2. Apply colors to the page */
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      transition: background-color 0.2s, color 0.2s;
+    }
+
+    a {
+      color: var(--link-color);
+    }
+
+    hr {
+      border: 0;
+      border-top: 1px solid var(--line-color);
+    }
+
+    /* 3. Position the toggle button in the top-right corner */
+    #theme-toggle {
+      position: fixed;
+      top: 16px;
+      right: 16px;
+      padding: 6px 12px;
+      cursor: pointer;
+      background: transparent;
+      color: var(--text-color);
+      border: 1px solid var(--line-color);
+      border-radius: 4px;
+    }
+  </style>
 </head>
 <body>
+
+  <!-- 4. Add the toggle button -->
+  <button id="theme-toggle">Dark Mode</button>
+
+  <!-- Your existing content -->
   <h1>info</h1>
   <p>sophomore @ clements highschool | Expected graduation - May 2029</p>
-  <hr />
-
+  <hr>
   <h2>About me</h2>
-  <p>
-    hello! my name is rishi kenchannavar and im currently grinding towards software engineering, bioengineering, and material science engineering.<br />
-    .
-  </p>
-  <hr />
-<h3>Projects</h3>
-  <p>https://github.com/playnmaker123/UH-HFB-Hackathon</p>
-  <p> SmartPack - SmartPack was a project me and a team of 3 others built during our time at the UH HFB Hackathon.
-  SmartPack is a passive computer-vision inspector for food box packing stations. It first learns an empty-table reference,
-  waits for a box to enter and settle, stabilizes the visible item count, then records that count when the box is removed. It
-  loads the next station model and repeats the process</p>
-  
-  <hr />
-  <h4>Interests</h4>
-  <p>software engineering, art, biology, earth sciences </p>
+  <p>hello! my name is rishi kenchannavar and im currently grinding towards software engineering, bioengineering, and material science engineering.</p>
+  <hr>
+  <h2>Projects</h2>
+  <p><a href="https://github.com/playnmaker123/UH-HFB-Hackathon">https://github.com/playnmaker123/UH-HFB-Hackathon</a></p>
+  <p>SmartPack - SmartPack was a project me and a team of 3 others built during our time at the UH HFB Hackathon...</p>
+  <hr>
+  <h3>Interests</h3>
+  <p>software engineering, art, biology, earth sciences</p>
+
+  <!-- 5. Add the toggle logic -->
+  <script>
+    const toggleBtn = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    // Load saved theme if the user visited before
+    if (localStorage.getItem('theme') === 'dark') {
+      body.classList.add('dark-mode');
+      toggleBtn.textContent = 'Light Mode';
+    }
+
+    toggleBtn.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      const isDark = body.classList.contains('dark-mode');
+      
+      toggleBtn.textContent = isDark ? 'Light Mode' : 'Dark Mode';
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
+  </script>
 </body>
 </html>
